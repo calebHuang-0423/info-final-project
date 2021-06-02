@@ -64,7 +64,8 @@ ui <- fluidPage(
                         ))
         ),
         mainPanel(
-            plotOutput('counPlot')
+            plotOutput('counPlot'),
+            textOutput('message3')
         )
     ),
     sidebarLayout(
@@ -79,7 +80,8 @@ ui <- fluidPage(
             )
         ),
         mainPanel(
-            plotOutput('thirdPlot')
+            plotOutput('thirdPlot'),
+            textOutput('message4')
         )
     )
 )

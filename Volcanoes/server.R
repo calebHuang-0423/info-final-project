@@ -90,5 +90,16 @@ shinyServer(function(input, output) {
         volcanoes data."
         return(msg)
     })
+    
+    output$message3 <- renderText({
+        msg = "From the chart, the most common volcano type is stratovolcano. There are more than 60 countries that have stratovolcanoes and Indonesia is the country that has the most stratovolcanoes. The second most common volcano type is pyroclastic cones and Mexico has the most. The third common volcano is shield and the United Kingdom has the most.
+"
+        return(msg)
+    })
+    
+    output$message4 <- renderText({
+        msg = "From the chart, the elevation of volcanoes is over 1000 metres in most regions. Among them, the Philippines and SE Asia have more than 100 volcanoes that are over 1000 metres. Japan, Taiwan and Marianas have the most  volcanoes that are lower than 0 metres and between 0-1000 metres, but they still have more than 70 volcanoes that are over 100 metres."
+        return(msg)
+    })
 
 })
