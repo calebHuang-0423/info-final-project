@@ -62,6 +62,22 @@ shinyServer(function(input, output) {
         return (plot)
     })
     
+    output$thirdPlot <-renderPlot({
+        vocanolData <- data %>%
+            filter(elevation <= input$elevation) %>%
+            group_by(region)
+        plotThird <- ggplot(data = vocanolData)+
+            geom_bar(mapping = aes(x = region))+
+            theme(axis.text.x = element_text(angle = 60, hjust = 0.5, vjust = 0.5))
+        labs(
+            title = "The last eruption of volcanoes in different region",
+            x = "region",
+            y = "number of volcanoes",
+            color = 'shape'
+        )
+        return(plotThird)
+    })
+    
     output$message2 <- renderText({
         msg = "We can see from the bar chart 'Evidence categories of volcanoes'
         that All volcanoes data evidence are categorized by 5 types, that is

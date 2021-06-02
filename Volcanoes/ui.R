@@ -66,6 +66,21 @@ ui <- fluidPage(
         mainPanel(
             plotOutput('counPlot')
         )
+    ),
+    sidebarLayout(
+        sidebarPanel(
+            selectInput("elevation",
+                        "choose the elevation",
+                        c(
+                            "<0" = '0',
+                            "0-1000" = '1000',
+                            "1000+"='6023'
+                        )
+            )
+        ),
+        mainPanel(
+            plotOutput('thirdPlot')
+        )
     )
 )
 
