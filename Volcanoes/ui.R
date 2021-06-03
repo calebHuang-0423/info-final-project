@@ -13,7 +13,34 @@ library(ggplot2)
 library(dplyr)
 
 ui <- fluidPage(
-    titlePanel("My first shiny project!"),
+    titlePanel("Volcanoes"),
+    sidebarLayout(
+      sidebarPanel(
+        h1("Data:"),
+        p(" https://www.kaggle.com/jessemostipak/volcano-eruptions(Volcano.csv)"),
+        h2("Creators"),
+        p("Zihao Wang, Cile Huang, Jiayi Huang, Xiaorong Yu"),
+        h3("Questions:"),
+        p("How the types of volcanoes affect the population live around?"),
+        p("How do scientists collect volcanoes data?"),
+        p("How the types of volcanoes changed with countries"),
+        p("How are volcanoes of different elevations distributed in various regions?")
+      ),
+      mainPanel(
+        h1("Project OverView"),
+        p("This report provides an overview of volcanoes' effects on people’s living, 
+      types of volcanoes in different countries or different elevations in various regions.
+      We use data visualization to provide volcano lovers some useful analysis, 
+      such as helping them understand and predict the eruption of volcanoes and the 
+      distribution of volcanoes in the world. Our target audience are the people who are interested 
+      in learning some basic knowledge of volcanoes or geographic detections. 
+      Since we include data about the types of volcanoes, population near the volcanoes, 
+      and elevation of volcanoes in various regions, we hope we can provide the audience 
+      a sight of the basic knowledge of volcanoes and the relationship between volcanoes and people.
+      "),
+        
+      ),
+    ),
     sidebarLayout(
         sidebarPanel(  # specify content for the "sidebar" column
             radioButtons("range",
@@ -24,8 +51,10 @@ ui <- fluidPage(
                              "Greater than 100000" = "100000"
                          ))
         ),
+
         mainPanel(
             plotOutput('distPlot'),
+            textOutput('message1'),
             plotOutput('evidence'),
             textOutput('message2'),
         )

@@ -78,6 +78,24 @@ shinyServer(function(input, output) {
         return(plotThird)
     })
     
+    output$message1 <- renderText({
+      msg = "Volcanoes' activities can seriously influence people's lives so that
+        it is important and worth finding the relationship between volcanoes and the
+        people who live near them. From the data in the figure that consist of 958 samples,
+        we can detect that there are 204 volcanoes with more than 30000 people live within
+        10km, 167 volcanoes with more than 50000 people live within 10km, and 102 volcanoes 
+        with more than 100000 people live within 10km. More than 20% of volcanoes have more 
+        than 30000 people live within 10km, which indicates the strong relationship between 
+        volcanoes and people. From the 3 different figures, we can detect that there are 5 
+        main types of volcanoes that have people live near them: Caldera, Pyroclastic cone(s), 
+        Stratovolcano, Stratovolcano(es),  and Volcanic field. Since Stratovolcano and 
+        Stratovolcano(es) have a lot of samples(353 and 107), we can conclude that the 
+        major types of volcanoes people are likely to live are Caldera, Pyroclastic
+        cone(s), and Volcanic field, the minor types of volcanoes are Stratovolcano
+        and Stratovolcano(es)."
+      return(msg)
+    })
+    
     output$message2 <- renderText({
         msg = "We can see from the bar chart 'Evidence categories of volcanoes'
         that All volcanoes data evidence are categorized by 5 types, that is
@@ -92,14 +110,24 @@ shinyServer(function(input, output) {
     })
     
     output$message3 <- renderText({
-        msg = "From the chart, the most common volcano type is stratovolcano. There are more than 60 countries that have stratovolcanoes and Indonesia is the country that has the most stratovolcanoes. The second most common volcano type is pyroclastic cones and Mexico has the most. The third common volcano is shield and the United Kingdom has the most.
+        msg = "From the chart, the most common volcano type is stratovolcano. 
+        There are more than 60 countries that have stratovolcanoes and 
+        Indonesia is the country that has the most stratovolcanoes. 
+        The second most common volcano type is pyroclastic cones and Mexico has the most
+        . The third common volcano is shield and the United Kingdom has the most.
 "
         return(msg)
     })
     
     output$message4 <- renderText({
-        msg = "From the chart, the elevation of volcanoes is over 1000 metres in most regions. Among them, the Philippines and SE Asia have more than 100 volcanoes that are over 1000 metres. Japan, Taiwan and Marianas have the most  volcanoes that are lower than 0 metres and between 0-1000 metres, but they still have more than 70 volcanoes that are over 100 metres."
+        msg = "From the chart, the elevation of volcanoes is over 1000 metres in most regions.
+        Among them, the Philippines and SE Asia have more than 100 volcanoes 
+        that are over 1000 metres. Japan, Taiwan and Marianas have the most  
+        volcanoes that are lower than 0 metres and between 0-1000 metres, but they 
+        still have more than 70 volcanoes that are over 100 metres."
         return(msg)
     })
+    
+    
 
 })
