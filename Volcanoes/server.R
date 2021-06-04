@@ -10,7 +10,7 @@ library(dplyr)
 shinyServer(function(input, output) {
   # read dataset
   data = read.csv("volcano.csv")
-  
+  data2 <- read.csv("eruptions.csv")
   # the distribution plot receive distance and return a chart
   # of numbers volcanoes with population live in that range
   output$distPlot <- renderPlot({
@@ -82,19 +82,18 @@ shinyServer(function(input, output) {
   
   # plot of months and eruptions
   output$finalPlot <- renderPlot({
-    data_erupt <- read.csv("data/eruptions.csv")
-    erupt <- data_erupt %>%
+    erupt <- data2 %>%
       filter(start_month  == input$month) %>%
       filter(end_month > 0, na.rm=TRUE) %>%
       group_by(end_month)
     plot <- ggplot(data = erupt) + 
-      geom_bar(mapping = aes(x = end_month))
-    labs(
-      title = "The volcanoes eruptions categories in given month",
-      x = "End month of eruptions",
-      y = "count",
-      color = "end_month"
-    )
+      geom_bar(mapping = aes(x = end_month)) +
+      labs(
+        title = "The volcanoes eruptions categories in given month",
+        x = "End month of eruptions",
+        y = "count",
+        color = "end_month"
+      )
     return(plot)
   })
   
