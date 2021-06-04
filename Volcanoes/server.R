@@ -15,7 +15,7 @@ library(dplyr)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     ##data = read.csv("Volcanoes/data/volcano.csv")
-    data = read.csv("data/volcano.csv")
+    data = read.csv("volcano.csv")
     output$distPlot <- renderPlot({
         range = as.numeric(input$range)
         popu = data %>%
@@ -126,6 +126,23 @@ shinyServer(function(input, output) {
         volcanoes that are lower than 0 metres and between 0-1000 metres, but they 
         still have more than 70 volcanoes that are over 100 metres."
         return(msg)
+    })
+    
+    output$msg1 <- renderText({
+      msg = "choose range of population and see types and numbers of volcanoes that
+      have people living in that range."
+      return(msg)
+    })
+    
+    output$msg2 <- renderText({
+      msg = "choose a volcano type and see how many of that volcanoes in each country."
+      return(msg)
+    })
+    
+    output$msg3 <- renderText({
+      msg = "choose an elevation and see numbers of volcanoes in that elevation for
+      countries."
+      return(msg)
     })
     
     

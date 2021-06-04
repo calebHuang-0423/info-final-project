@@ -1,0 +1,13 @@
+body {
+  background-image: url('/volcano.jpg');
+  color: white;
+  font-size: 22px;
+}
+
+p {
+  font-size: 22px;
+}
+
+.white {
+  color: black;
+}
